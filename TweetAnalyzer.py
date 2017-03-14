@@ -15,11 +15,11 @@ twitter = Twitter(auth=OAuth(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER
 #simple user input for twitter handle
 twitterHandle = input("Enter twitter handle for analysis: ")
 
-#variable for twitter query instance(s)
-JSONroot = twitter.statuses.user_timeline(screen_name=twitterHandle)
+#variable for twitter query instance(s) count = tweets pulled
+JSONroot = twitter.statuses.user_timeline(screen_name=twitterHandle,count=100)
 
 earlyTweet = lunchTweet = eveningTweet = lateTweet = 0
-tweetAnalysisVolume = 20 # values greater than 20 crash
+tweetAnalysisVolume = 100
 print("\nInfo on " + str(tweetAnalysisVolume) + " historical tweets from: " + twitterHandle + "\n")
 
 for i in range(0,tweetAnalysisVolume):
