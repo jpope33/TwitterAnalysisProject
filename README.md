@@ -3,4 +3,3 @@ Hey guys, this code seems to working at the basic level we described. It can ana
 
 Maybe we can start adding things to address here
 1. Doesn't run from terminal
-2. Limited to 20 tweets
