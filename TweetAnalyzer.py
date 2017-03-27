@@ -78,7 +78,7 @@ print("Early Percent: " + str(round(earlyTweetPercent, 2)) + "%")
 print("Lunch Percent: " + str(round(lunchTweetPercent, 2)) + "%")
 print("Evening Percent: " + str(round(eveningTweetPercent, 2)) + "%")
 print("Late Percent: " + str(round(lateTweetPercent, 2)) + "%")
-print("Total Tweets: " + tweetAnalysisVolume)
+print("Total Tweets: " + str(tweetAnalysisVolume))
 
 #list of empty words to ignore when finding common terms used
 ignore = ['rt', 'retweet', 'a', 'an', 'am', 'of', 'that', 'with', 'will', 'at', 'by', 'not', 'no', 'yes', 'was', 'very',
