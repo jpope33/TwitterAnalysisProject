@@ -1,1 +1,5 @@
-I messed around with altering the timezones manually, I don't think that's the way to go. Python has a library called pytz I think we should take a look at.
+Hey guys, this code seems to working at the basic level we described. It can analyze the timeframes a given user tweets for at most 20 past tweets.
+
+
+Maybe we can start adding things to address here
+1. Doesn't run from terminal
