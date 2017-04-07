@@ -10,10 +10,10 @@ import sys
 non_bmp_map = dict.fromkeys(range(0x10000, sys.maxunicode +1), 0xfffd)
 #You'll need to replace these values with your own twitter app, start at https://apps.twitter.com
 #After creating a new app find the needed creditials at 'Keys and Access Tokens' tab
-ACCESS_TOKEN = "827582834122563585-Z6iFpPaDqmAXKaeLiqNX23hwpoe2ZCk"
-ACCESS_SECRET = "dzxYhH166vbRChEITWISCO3S6j5qW2Fi0h6l25BQLso8P"
-CONSUMER_KEY = "v0wMSuWKid0qe2tf3N9e1lkcx"
-CONSUMER_SECRET = "SXJXuvzBNTcuhbIzjAmgkpp8KnRpN8K3bYovd4KexazWuo7uJG"
+ACCESS_TOKEN = "at"
+ACCESS_SECRET = "as"
+CONSUMER_KEY = "ck"
+CONSUMER_SECRET = "cs"
 #connect to twitter API
 twitter = Twitter(auth=OAuth(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET))
 
