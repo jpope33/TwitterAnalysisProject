@@ -16,7 +16,7 @@ except ImportError:
 import tkinter as tk
 
 from Application import App_support
-from TweetAnalyzer import *
+from TwitterAnalysis.TweetAnalyzer import *
 
 T = TwitterAnalysis()
 

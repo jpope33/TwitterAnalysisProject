@@ -21,3 +21,5 @@ To build and start the server, run:
 npm run build
 npm run serve
 ```
+
+To start GUI run App.py first
