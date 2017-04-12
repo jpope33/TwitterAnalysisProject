@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# GUI helped created by PAGE version 4.8.9
+# GUI skeleton created by PAGE version 4.8.9
 # In conjunction with Tcl version 8.6
 
 

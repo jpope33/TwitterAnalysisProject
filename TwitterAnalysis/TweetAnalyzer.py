@@ -91,11 +91,11 @@ class TwitterAnalysis:
         lunchTweetPercent = lunchTweet/tweetAnalysisVolume*100.
         eveningTweetPercent = eveningTweet/tweetAnalysisVolume*100.
         lateTweetPercent = lateTweet/tweetAnalysisVolume*100.
-        print("Early Percent: " + str(round(earlyTweetPercent, 2)) + "%")
-        print("Lunch Percent: " + str(round(lunchTweetPercent, 2)) + "%")
-        print("Evening Percent: " + str(round(eveningTweetPercent, 2)) + "%")
-        print("Late Percent: " + str(round(lateTweetPercent, 2)) + "%")
-        print("Total Tweets: " + str(tweetAnalysisVolume) + "\n")
+        #print("Early Percent: " + str(round(earlyTweetPercent, 2)) + "%")
+        #print("Lunch Percent: " + str(round(lunchTweetPercent, 2)) + "%")
+        #print("Evening Percent: " + str(round(eveningTweetPercent, 2)) + "%")
+        #print("Late Percent: " + str(round(lateTweetPercent, 2)) + "%")
+        #print("Total Tweets: " + str(tweetAnalysisVolume) + "\n")
         return(str("Early Percent: " + str(round(earlyTweetPercent, 2)) + "%" + "\n"
                    + "Lunch Percent: " + str(round(lunchTweetPercent, 2)) + "%" + "\n"
                + "Evening Percent: " + str(round(eveningTweetPercent, 2)) + "%" + "\n"

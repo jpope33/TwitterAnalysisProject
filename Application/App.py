@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# GUI helped created by PAGE version 4.8.9
+# GUI skeleton created by PAGE version 4.8.9
 # In conjunction with Tcl version 8.6
 
 try:
@@ -42,9 +42,6 @@ def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root, result, entries, rt, ents
     root = Tk()
-    rt = root
-    result = tk.Label(rt)
-    result.pack(side=tk.BOTTOM, padx=20, pady=20)
     App_support.set_Tk_var()
     top = New_Toplevel_1 (root)
     App_support.init(root, top)
@@ -53,7 +50,7 @@ def vp_start_gui():
 w = None
 def create_New_Toplevel_1(root, *args, **kwargs):
     '''Starting point when module is imported by another program.'''
-    global w, w_win, rt, ents
+    global w, w_win, ents
     w = Toplevel (root)
     App_support.set_Tk_var()
     top = New_Toplevel_1 (w)
@@ -117,7 +114,7 @@ class New_Toplevel_1:
         self.usernamefield.configure(selectforeground="black")
 
         self.searchB = Button(self.Frame1)
-        self.searchB.place(relx=0.73, rely=0.09, height=24, width=86)
+        self.searchB.place(relx=0.73, rely=0.09, height=24, width=99)
         self.searchB.configure(activebackground="#d9d9d9")
         self.searchB.configure(activeforeground="#000000")
         self.searchB.configure(background="#d9d9d9")
@@ -131,7 +128,7 @@ class New_Toplevel_1:
         self.searchB.configure(command=(lambda e=self.usernamefield: search(e)))
 
         self.common = Label(self.Frame1)
-        self.common.place(relx=0.14, rely=0.66, relheight=0.21, relwidth=0.53)
+        self.common.place(relx=0.14, rely=0.66, relheight=0.24, relwidth=0.53)
         self.common.configure(background="white")
         self.common.configure(disabledforeground="#a3a3a3")
         self.common.configure(font="TkFixedFont")
@@ -154,7 +151,7 @@ class New_Toplevel_1:
         self.commonB.configure(command=(lambda e=self.usernamefield: common(e, self.common)))
 
         self.per = Label(self.Frame1)
-        self.per.place(relx=0.14, rely=0.33, relheight=0.19, relwidth=0.53)
+        self.per.place(relx=0.14, rely=0.33, relheight=0.24, relwidth=0.53)
         self.per.configure(background="white")
         self.per.configure(font="TkTextFont")
         self.per.configure(foreground="black")
@@ -163,7 +160,7 @@ class New_Toplevel_1:
         self.per.configure(width=264)
 
         self.percentB = Button(self.Frame1)
-        self.percentB.place(relx=0.73, rely=0.33, height=30, width=90)
+        self.percentB.place(relx=0.73, rely=0.33, height=24, width=99)
         self.percentB.configure(activebackground="#d9d9d9")
         self.percentB.configure(activeforeground="#000000")
         self.percentB.configure(background="#d9d9d9")
