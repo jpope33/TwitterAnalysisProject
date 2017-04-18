@@ -7,17 +7,19 @@
   "dependencies": {
     "chart.js": "^2.5.0",
     "react": "^15.4.2",
+    "react-chartjs-2": "^2.0.0",
     "react-dom": "^15.4.2",
-    "react-chartjs-2": "^2.0.0"
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "browserify": "^14.1.0",
+    "express": "^4.15.2",
     "http-server": "^0.9.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify index.js -o bundle.js",
-    "serve": "http-server ."
+    "build": "browserify index.js -o public/bundle.js",
+    "serve": "node server.js"
   },
   "author": "",
   "license": "ISC"
