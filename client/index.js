@@ -35,13 +35,12 @@ function createChartDataObject(data) {
 var ctx = document.getElementById('canvas');
 var chart;
 
-var req = {
-  username: 'andre_zs'
-};
+//var req = {
+  //username: 'andre_zs'
+//};
 
 request
-  .get('/data')
-  .send(req)
+  .get('/data/andre_zs')
   .end(function (err, res) {
     //console.log(res.body);
     chart = new Chart(ctx, {
