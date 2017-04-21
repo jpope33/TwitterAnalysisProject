@@ -36,7 +36,7 @@ class Main extends React.Component {
     super(props);
     this.state = {
       chartData: [],
-      username: ''
+      formValue: ''
     };
 
     this.chart = null;
@@ -45,10 +45,11 @@ class Main extends React.Component {
     this.chart = new Chart(this.canvas, {
       type: 'pie',
       data: createChartDataObject(this.state.chartData),
-      //options: options
     });
+  }
+  fetch(username) {
     request
-      .get('/data/andre_zs')
+      .get('/data/' + username)
       .end((err, res) => {
         this.setState({
           chartData: res.body.chartData
@@ -56,15 +57,33 @@ class Main extends React.Component {
       });
   }
   componentDidUpdate() {
-    this.chart = new Chart(this.canvas, {
-      type: 'pie',
-      data: createChartDataObject(this.state.chartData),
-    });
+    this.chart.data.datasets[0].data = this.state.chartData;
+    this.chart.update();
   }
   handleChange(event) {
+    const username = event.target.value;
     this.setState({
-      username: event.target.value
+      formValue: username
     });
+  }
+  handleOnKeyPress(event) {
+    if (event.key === 'Enter') {
+      const username = event.target.value;
+      this.submit(username);
+    }
+  }
+  submit(username) {
+    this.setState({
+      username: username
+    });
+    
+    if (username !== '') {
+      this.fetch(username);
+    }
+  }
+  handleSubmitPress(e) {
+    e.preventDefault();
+    this.submit(this.state.formValue);
   }
   render() {
     return (
@@ -74,11 +93,13 @@ class Main extends React.Component {
           <label>Twitter username:</label>
           <input
             type="text"
-            value={this.state.username}
-            onChange={this.handleChange}
+            value={this.state.formValue}
+            onChange={(e) => this.handleChange(e)}
+            onKeyPress={(e) => this.handleOnKeyPress(e)}
           />
+          <button onClick={e => this.handleSubmitPress(e)}>Submit</button>
         </div>
-        <canvas ref={(canvas) => this.canvas=canvas} id="canvas"></canvas>
+        <canvas ref={canvas => this.canvas=canvas} id="canvas"></canvas>
       </div>
     );
   }
