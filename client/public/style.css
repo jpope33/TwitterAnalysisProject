@@ -1,7 +1,7 @@
 h1 {
   text-align: center;
 }
-#container {
+#root {
   width: 25em;
   margin: auto;
 }

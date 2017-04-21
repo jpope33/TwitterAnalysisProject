@@ -1,8 +1,7 @@
-'use strict';
-
-var Chart = require('chart.js');
-
-var request = require('superagent');
+import request from 'superagent';
+import Chart from 'chart.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 function createChartDataObject(data) {
   return {
@@ -32,36 +31,60 @@ function createChartDataObject(data) {
   };
 }
 
-var ctx = document.getElementById('canvas');
-var chart;
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      chartData: [],
+      username: ''
+    };
 
-//var req = {
-  //username: 'andre_zs'
-//};
-
-request
-  .get('/data/andre_zs')
-  .end(function (err, res) {
-    //console.log(res.body);
-    chart = new Chart(ctx, {
+    this.chart = null;
+  }
+  componentDidMount() {
+    this.chart = new Chart(this.canvas, {
       type: 'pie',
-      data: createChartDataObject(res.body.chartData),
+      data: createChartDataObject(this.state.chartData),
       //options: options
     });
-  });
+    request
+      .get('/data/andre_zs')
+      .end((err, res) => {
+        this.setState({
+          chartData: res.body.chartData
+        });
+      });
+  }
+  componentDidUpdate() {
+    this.chart = new Chart(this.canvas, {
+      type: 'pie',
+      data: createChartDataObject(this.state.chartData),
+    });
+  }
+  handleChange(event) {
+    this.setState({
+      username: event.target.value
+    });
+  }
+  render() {
+    return (
+      <div>
+        <h1>Twitter User Analysis</h1>
+        <div>
+          <label>Twitter username:</label>
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+        </div>
+        <canvas ref={(canvas) => this.canvas=canvas} id="canvas"></canvas>
+      </div>
+    );
+  }
+}
 
-
-
-//var chart = new Chart(ctx, {
-  //type: 'bar',
-  //data: data,
-  //options: {
-    //scales: {
-      //yAxes: [{
-        //ticks: {
-          //beginAtZero:true
-        //}
-      //}]
-    //}
-  //}
-//});
+ReactDOM.render(
+  <Main />,
+  document.getElementById('root')
+);
