@@ -12,10 +12,10 @@ def getTimeStatistics(twitterHandle):
     # used as printing format
     # non_bmp_map = dict.fromkeys(range(0x10000, sys.maxunicode + 1), 0xfffd)
 
-    ACCESS_TOKEN = "at"
-    ACCESS_SECRET = "as"
-    CONSUMER_KEY = "ck"
-    CONSUMER_SECRET = "cs"
+    ACCESS_TOKEN = "23141275-vOOBFygRqPQswrtEzIwSxFXY75TLBhLYkPFtDiwTm"
+    ACCESS_SECRET = "JobHvwTLlx9jUFNNzax0XSvEU90mK4o77mc2d9vePjfMw"
+    CONSUMER_KEY = "GEub3JcSlctyCwyC76alQxDeq"
+    CONSUMER_SECRET = "TqCauPlX1oJxnr9czBCkDgV3REgoGogHSYbmAUBfJ6j8KLONqu"
 
     # connect to twitter API
     twitter = Twitter(auth=OAuth(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET))
@@ -36,7 +36,7 @@ def getTimeStatistics(twitterHandle):
 
     userTweets = []
 
-    print("\nInfo on " + " historical tweets from: " + twitterHandle + "\n")
+    # print("\nInfo on " + " historical tweets from: " + twitterHandle + "\n")
 
     while len(JSONroot) > 0:
 
@@ -142,25 +142,39 @@ def getWordStatistics():
 
     count = Counter()
     count.update(termsUsed)
-    countTuple = count.most_common(1)[0]
+    countTuple = count.most_common(10)
 
-    statisitcs = {}
-    statisitcs['commonWord'] = countTuple[0]
-    statisitcs['wordCount'] = countTuple[1]
-    return statisitcs
+    # print([countTuple])
+
+    statistics = {}
+    statistics['commonWords'] = list(map(lambda x: {'word': x[0], 'frequency': x[1]},countTuple))
+    # print(statistics)
+    # statisitcs['commonWord'] = countTuple[0]
+    # statisitcs['wordCount'] = countTuple[1]
+    return statistics
 
 #function calls
-twitterHandle = sys.argv[1]
+# twitterHandle = sys.argv[1]
 
-timeStats = getTimeStatistics(twitterHandle)
+# timeStats = getTimeStatistics(twitterHandle)
 #print(timeStats)
 
-wordStats = getWordStatistics()
+# wordStats = getWordStatistics()
 #print(wordStats)
 
-dictAll = {}
-dictAll.update(timeStats)
-dictAll.update(wordStats)
+# dictAll = {}
+# dictAll.update(timeStats)
+# dictAll.update(wordStats)
 
-JSONobject = json.dumps(dictAll)
-print(JSONobject)
+# JSONobject = json.dumps(dictAll)
+# print(JSONobject)
+
+def userInfo(twitterHandle):
+    timeStats = getTimeStatistics(twitterHandle)
+    wordStats = getWordStatistics()
+
+    dictAll = {}
+    dictAll.update(timeStats)
+    dictAll.update(wordStats)
+    
+    return dictAll
