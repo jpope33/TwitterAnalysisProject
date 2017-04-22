@@ -36,7 +36,7 @@ function createChartDataObject(data) {
 const colors = [];
 
 for (let i = 0; i < 10; i++) {
-  colors.push(randomcolor);
+  colors.push(randomcolor());
 }
 
 function createWordChartObject(data) {
@@ -93,8 +93,8 @@ class Main extends React.Component {
     this.wordChart.data.datasets[0].data = this.state.wordData.map(x => x.frequency);
 
     //const colors = this.state.wordData.map(() => randomcolor());
-    //this.wordChart.data.datasets[0].backgroundColor = colors;
-    //this.wordChart.data.datasets[0].hoverBackgroundColor = colors;
+    this.wordChart.data.datasets[0].backgroundColor = colors;
+    this.wordChart.data.datasets[0].hoverBackgroundColor = colors;
     this.wordChart.config.data.labels = this.state.wordData.map(x => x.word);
     this.wordChart.update();
   }
@@ -138,11 +138,11 @@ class Main extends React.Component {
           <button onClick={e => this.handleSubmitPress(e)}>Submit</button>
         </div>
         <div className='half'>
-          <h2>Posting times</h2>
+          <h2 className='text-center'>Posting times</h2>
           <canvas ref={canvas => this.canvas=canvas} id="canvas"></canvas>
         </div>
         <div className='half'>
-          <h2>Most frequently used words</h2>
+          <h2 className='text-center'>Most frequently used words</h2>
           <canvas ref={canvas => this.wordCanvas=canvas} id="canvas"></canvas>
         </div>
       </div>

@@ -16,3 +16,7 @@ h1 {
   margin: auto;
   text-align: center;
 }
+
+.text-center {
+  text-align: center;
+}
