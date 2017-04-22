@@ -1,7 +1,18 @@
 h1 {
   text-align: center;
 }
+
 #root {
-  width: 25em;
+  width: 80%;
   margin: auto;
+}
+
+.half {
+  display: inline-block;
+  width: 50%;
+}
+
+.form {
+  margin: auto;
+  text-align: center;
 }

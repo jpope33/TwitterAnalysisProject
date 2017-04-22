@@ -7,7 +7,14 @@ def index():
 
 @app.route('/data/<path:username>')
 def data(username):
-    return jsonify(username=username,chartData=[57, 13, 10, 20])
+    return jsonify(
+        username=username,
+        chartData=[57, 13, 10, 20],
+        wordData=[
+            {'word': 'hello', 'frequency': 20},
+            {'word': 'what', 'frequency': 10}
+        ]
+    )
 
 if __name__ == '__main__':
     app.run()
