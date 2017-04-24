@@ -33,7 +33,7 @@ npm run build
 
 The application fetches data from Twitter using the Twitter API. Doing so requires a set of access
 tokens. To generate these follow the instructions from the following link:
-https://dev.twitter.com/oauth/overview/application-owner-access-tokens and 
+https://dev.twitter.com/oauth/overview/application-owner-access-tokens
 
 For the server to run, you must open `FinalScript/TweetAnalyzer.py` and change the tokens to the ones you
 received.
@@ -45,6 +45,8 @@ Finally, to start the server, run the following from the root project folder:
 ```bash
 python3 main.py
 ```
+
+The client will be available on http://localhost:5000
 
 ## Useful links
 
