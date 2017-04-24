@@ -1,6 +1,6 @@
 # Twitter Analysis Project User Manual
 
-## Generating access tokens to TWitter API
+## Generating access tokens to Twitter API
 In order to extract tweets from Twitter.com, a user must first join https://dev.twitter.com/ and create personal access tokens.  These tokens are to be inserted into TweetAnalyzer.py.
 
 ## Libraries used
